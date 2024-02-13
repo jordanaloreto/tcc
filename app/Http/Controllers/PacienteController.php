@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Main;
 
 
-class MainController extends Controller{
+class PacienteController extends Controller{
 
-    public function index()
+    public function create()
     {        
-        return view('layouts.main');
+        return view('pacientes.createPaciente');
             
     }
 }
