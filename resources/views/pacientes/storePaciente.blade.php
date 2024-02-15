@@ -5,7 +5,7 @@
 @section('content')
 
     <div id="creeate-container">
-        <form action="{{ route('pacienteCadastro') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('storePaciente') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">

@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PacienteController;
 
-Route::get('/', [PacienteController::class, 'index']);
-Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('table');
-Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacienteCadastro');
+Route::get('/', [PacienteController::class, 'index'])->name('dashboard');
+Route::get('/pacientes', [PacienteController::class, 'index'])->name('table');
+Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('createPaciente');
+Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('storePaciente');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

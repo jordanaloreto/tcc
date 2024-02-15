@@ -27,6 +27,35 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.axios = require('axios');
+
+// Configuração global do Axios
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+// Criação de uma instância do Vue
 const app = new Vue({
     el: '#app',
+    data: {
+        pacientes: []
+    },
+    mounted() {
+        this.loadPatients();
+    },
+    methods: {
+        loadPatients() {
+            axios.get('/create')
+                .then(response => {
+                    this.pacientes = response.data;
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar pacientes:', error);
+                });
+        },
+        viewPatient(paciente) {
+            // Aqui você pode implementar a navegação para a tela de visualização do paciente
+            console.log('Visualizar paciente:', paciente);
+            // Exemplo: window.location.href = '/pacientes/' + patient.id;
+        }
+    }
 });
+

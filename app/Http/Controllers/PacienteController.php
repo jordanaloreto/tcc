@@ -13,13 +13,13 @@ class PacienteController extends Controller {
     
     public function index()
     {        
-        return view('layouts.main');
-            
+        $pacientes = Pacientes::all();
+        return view('pacientes.index', compact('pacientes'));
     }
+    
     public function create()
     {        
-        return view('pacientes.tablePaciente');
-            
+        return view('pacientes.create');
     }
 
     public function store(Request $request){
@@ -44,7 +44,5 @@ class PacienteController extends Controller {
 
         return back()->with('msg', 'Paciente cadastrado com Sucesso!');
 
-    }
-
-    
+    }   
 }
