@@ -13,13 +13,17 @@ class PacienteController extends Controller {
     
     public function index()
     {        
-        $pacientes = Pacientes::all();
-        return view('pacientes.index', compact('pacientes'));
+        return view('pacientes.tablePaciente');
+    }
+    
+    public function button()
+    {        
+        return view('pacientes.button');
     }
     
     public function create()
     {        
-        return view('pacientes.create');
+        return Pacientes::all();
     }
 
     public function store(Request $request){

@@ -26,7 +26,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="{{route('table')}}">
+            <a class="nav-link d-flex align-items-center gap-2" href="{{route('createPaciente')}}">
               <svg class="bi"><use xlink:href="#people"/></svg>
               Pacientes
             </a>

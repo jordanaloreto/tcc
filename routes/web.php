@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PacienteController;
 
-Route::get('/', [PacienteController::class, 'index'])->name('dashboard');
-Route::get('/pacientes', [PacienteController::class, 'index'])->name('table');
-Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('createPaciente');
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+
+
+
+Route::get('/pacientes/create', [PacienteController::class, 'index'])->name('createPaciente');
+Route::get('/create', [PacienteController::class, 'create'])->name('createPaciente');//table
 Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('storePaciente');
+Route::get('/pacientes/teste', [PacienteController::class, 'button'])->name('button');
 
 Auth::routes();
 

@@ -5,25 +5,25 @@
 @section('content')
 
 <div id="app">
-  <h2>Lista de Pacientes</h2>
-  <div class="table-responsive">
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>#</th>
-                  <th>Nome</th>
-                  <th>Nome da Mãe</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr v-for="(paciente, create) in pacientes" :key="create" @click="viewPatient(paciente)">
-                  <td>@{{ create + 1 }}</td>
-                  <td>@{{ paciente.name }}</td>
-                  <td>@{{ paciente.nameMae }}</td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
+  <h2>Contador</h2>
+  <p>Contagem: @{{ contador }}</p>
+  <button @click="incrementarContador">Incrementar</button>
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            incrementarContador() {
+                this.contador++;
+            }
+        }
+    });
+</script>
+@endpush
